@@ -1,0 +1,2 @@
+# amazingHack
+Team TopCOder
