@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans  http://www.springframework.org/schema/beans/spring-beans.xsd 
+			http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<context:property-placeholder location="storm.properties"/> 
+		    
+	<!-- Oculus Event Storm Configuration -->	
+	<bean id="configuration" class="com.topcoder.processing.beans.StormConfiguration">
+		<property name="kafkaZk" value="${kafka.zk}"/>
+		<property name="topologyName" value="${topology.name}"/>
+		<property name="topologyDebugMode" value="${topology.debug.mode}"/>		
+		<property name="numOfWorkers" value="${number.of.workers}"/>
+		<property name="numofAckers" value="${number.of.ackers}"/>
+		<property name="msgTimeout" value="${topology.msg.timeout}"/>		
+		<property name="defaultParallelism" value="${default.parallelism}"/>  
+		<property name="maxTaskParallelism" value="${max.task.parallelism}"/>
+		<property name="connRetryInterval" value="${connection.retry.interval}"/>
+		<property name="connMaxRetry" value="${connection.max.retry}"/>
+		
+		<property name="topicName" value="${topic.name}"/>
+		<property name="consumerId" value="${consumer.id}"/>
+
+		<property name="kafkaSpoutThreads" value="${spout.threads}"/>
+		<property name="initializerBoltThreads" value="${initializer.bolt.threads}"/>
+
+		<property name="mongoHosts" value="${mongo.replica.host}"/>
+<!-- 		<property name="mongoUsername" value="${mongo.username}"/>		 -->
+<!-- 		<property name="mongoPassword" value="${mongo.password}"/> -->
+		<property name="mongoConnections" value="${mongo.no.of.connections}"/>		
+		<property name="mongoWriteConcern" value="${mongo.write.concern}"/>
+		<property name="mongoDBName" value="${mongo.databaseName}"/>
+
+	</bean>   		
+</beans>
